@@ -8,7 +8,7 @@ const INDEX_KEY = "currIndex"
 const PROBSOLVED_KEY = "probSolved"
 const STORAGE_KEY = "user-preference-alarm-enabled"
 const ALARM_NAME = "my-alarm"
-const ALARM_DELAY_MINUTES = 2
+const ALARM_DELAY_MINUTES = 1440 // 24 hours
 
 let webRequestListenerAdded = false
 let matchingUrl = ""
@@ -77,10 +77,28 @@ function webRequestListener(details) {
           fetchAndCheckObjects(matchingUrl).then(async (isAccepted) => {
             if (isAccepted) {
               probSolved++
-              // Update currIndex and save
-              currIndex++
-              await saveIndexAndProbSolved() // Save the updated index
 
+              // Handle index update and storage based on probSolved
+              if (probSolved === 2) {
+                console.log("You have reached the limit of 2 problems per day!")
+                chrome.declarativeNetRequest.updateDynamicRules({
+                  removeRuleIds: [Rule_ID]
+                })
+              } else {
+                // Update currIndex and save only if the limit is not reached
+                currIndex++ // Move to the next problem
+                currIndex = currIndex % probs.length // Wrap around if the end is reached
+                await saveIndexAndProbSolved() // Save the updated index
+                // Redirect to the next problem if needed
+                if (currIndex < probs.length) {
+                  const redirectUrl = await getProblemLinkAtIndex(
+                    probs,
+                    currIndex
+                  )
+                  console.log("Redirecting to:", redirectUrl)
+                  setRedirectRuleForTab(redirectUrl)
+                }
+              }
               chrome.webRequest.onCompleted.removeListener(webRequestListener)
               webRequestListenerAdded = false
               matchingUrl = ""
@@ -88,12 +106,6 @@ function webRequestListener(details) {
 
               await updateStatusTrue(lcLink)
               console.log("Problem state saved successfully")
-
-              if (probSolved === 2) {
-                chrome.declarativeNetRequest.updateDynamicRules({
-                  removeRuleIds: [Rule_ID]
-                })
-              }
             }
           })
         }, 2000) // Delay fetchAndCheckObjects
