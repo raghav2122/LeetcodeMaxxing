@@ -27,7 +27,7 @@ This extension is built using the Plasmo framework.
 To run the extension in development mode:
 
 1. Clone this repository.
-2. Install dependencies using `npm install`.
+2. Install dependencies using `pnpm install`.
 3. Run the development server using `yarn dev`.
 
 ## Credits
