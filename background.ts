@@ -1,6 +1,8 @@
 import * as probs from "leetcode-problems/striver191Probs.json"
 import * as probsBase from "leetcode-problems/striverDSAbegineer.json"
 
+import { excludedSites } from "~constants/excluded-sites"
+
 import { storage } from "./storage"
 
 const Rule_ID = 1
@@ -240,11 +242,7 @@ function setRedirectRuleForTab(redirectUrl) {
     },
     condition: {
       urlFilter: "*://*/*",
-      excludedRequestDomains: [
-        "developer.chrome.com",
-        "chrome-extension://*",
-        "mail.google.com"
-      ],
+      excludedRequestDomains: excludedSites,
       resourceTypes: ["main_frame"]
     }
   }
