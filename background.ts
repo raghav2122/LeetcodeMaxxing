@@ -19,14 +19,18 @@ let currIndex = 0
 let probSolved = 0
 let isAlarmActive = false // Flag to track alarm state
 
+// Function to load index and problem solved count from storage
 async function loadIndexAndProbSolved() {
+  console.log("Loading index and probSolved from storage")
   const storedIndex = await storage.get(INDEX_KEY)
   const storedProbSolved = await storage.get(PROBSOLVED_KEY)
   currIndex = storedIndex ? parseInt(storedIndex, 10) : 0
   probSolved = storedProbSolved ? parseInt(storedProbSolved, 10) : 0
 }
 
+// Function to save index and problem solved count to storage
 async function saveIndexAndProbSolved() {
+  console.log("Saving index and probSolved to storage")
   const storedIndex = await storage.get(INDEX_KEY)
   const storedProbSolved = await storage.get(PROBSOLVED_KEY)
 
@@ -39,17 +43,18 @@ async function saveIndexAndProbSolved() {
   }
 }
 
+// Event listener for when a new tab is created
 chrome.tabs.onCreated.addListener(async function (tab) {
   console.log("Tab created:", tab)
-  await setStatusFalse()
-  await loadIndexAndProbSolved() // Load from storage
+  await setStatusFalse() // Call to set all statuses to false in storage
+  await loadIndexAndProbSolved() // Load index and probSolved from storage
 
   if (probSolved < 2) {
     console.log("Checking status for problem:", probs[currIndex].lcLink)
-    addWebRequestListener()
+    addWebRequestListener() // Add a listener for web requests
     matchingUrl = ""
     let url = probs[currIndex].lcLink
-    let problemStatus = await checkStatus(url)
+    let problemStatus = await checkStatus(url) // Check if the current problem is solved
     console.log("Problem status", problemStatus)
     while (currIndex < probs.length && problemStatus === true) {
       currIndex++
@@ -61,12 +66,14 @@ chrome.tabs.onCreated.addListener(async function (tab) {
     if (currIndex < probs.length && probSolved < 2) {
       const redirectUrl = await getProblemLinkAtIndex(probs, currIndex) // Await the URL
       console.log("Redirecting to:", redirectUrl)
-      setRedirectRuleForTab(redirectUrl)
+      setRedirectRuleForTab(redirectUrl) // Set a rule to redirect to the next problem
     }
   }
 })
 
+// Web request listener function to handle LeetCode submission URLs
 function webRequestListener(details) {
+  console.log("WebRequestListener triggered")
   if (matchingUrl === "" && isLeetCodeSubmissionUrl(details.url)) {
     const lcLink = probs[currIndex].lcLink
     checkStatus(lcLink).then((problemStatus) => {
@@ -77,6 +84,9 @@ function webRequestListener(details) {
           fetchAndCheckObjects(matchingUrl).then(async (isAccepted) => {
             if (isAccepted) {
               probSolved++
+              console.log(
+                "Problem accepted, updating status and redirecting if needed"
+              )
 
               // Handle index update and storage based on probSolved
               if (probSolved === 2) {
@@ -85,7 +95,6 @@ function webRequestListener(details) {
                   removeRuleIds: [Rule_ID]
                 })
               } else {
-                // Update currIndex and save only if the limit is not reached
                 currIndex++ // Move to the next problem
                 currIndex = currIndex % probs.length // Wrap around if the end is reached
                 await saveIndexAndProbSolved() // Save the updated index
@@ -96,15 +105,15 @@ function webRequestListener(details) {
                     currIndex
                   )
                   console.log("Redirecting to:", redirectUrl)
-                  setRedirectRuleForTab(redirectUrl)
+                  setRedirectRuleForTab(redirectUrl) // Redirect to the next problem
                 }
               }
-              chrome.webRequest.onCompleted.removeListener(webRequestListener)
+              chrome.webRequest.onCompleted.removeListener(webRequestListener) // Remove the listener
               webRequestListenerAdded = false
               matchingUrl = ""
               console.log("Accepted submission, moving to next problem")
 
-              await updateStatusTrue(lcLink)
+              await updateStatusTrue(lcLink) // Update the problem status to true
               console.log("Problem state saved successfully")
             }
           })
@@ -114,11 +123,13 @@ function webRequestListener(details) {
       }
     })
   } else if (matchingUrl !== "" && details.url !== matchingUrl) {
-    // Perform actions for other URLs
+    console.log("Performing actions for other URLs")
   }
 }
 
+// Function to add a web request listener
 function addWebRequestListener() {
+  console.log("Adding webRequestListener")
   if (!webRequestListenerAdded) {
     chrome.webRequest.onCompleted.addListener(
       webRequestListener,
@@ -129,10 +140,12 @@ function addWebRequestListener() {
   }
 }
 
-// Add the initial listener
+// Add the initial listener when the script runs
 addWebRequestListener()
 
+// Function to set the status of problems to false in storage
 async function setStatusFalse() {
+  console.log("Setting status to false for a batch of problems")
   try {
     const batchSize = 10
     const endIndex = Math.min(false_status_count + batchSize, probsBase.length)
@@ -154,7 +167,9 @@ async function setStatusFalse() {
   }
 }
 
+// Function to check the status of a specific problem
 async function checkStatus(lcLink) {
+  console.log(`Checking status for problem: ${lcLink}`)
   try {
     const status = await storage.get(lcLink)
     console.log(`Status for ${lcLink} is ${status}`)
@@ -165,7 +180,9 @@ async function checkStatus(lcLink) {
   }
 }
 
+// Function to update the status of a problem to true in storage
 async function updateStatusTrue(lcLink) {
+  console.log(`Updating status to true for problem: ${lcLink}`)
   try {
     // Set the status to true in local storage
     await storage.set(lcLink, true)
@@ -176,7 +193,9 @@ async function updateStatusTrue(lcLink) {
   }
 }
 
+// Function to fetch data from a URL and check if the problem was accepted
 async function fetchAndCheckObjects(checkUrl) {
+  console.log(`Fetching and checking objects from URL: ${checkUrl}`)
   try {
     const response = await fetch(checkUrl)
     const data = await response.json()
@@ -187,12 +206,16 @@ async function fetchAndCheckObjects(checkUrl) {
   }
 }
 
+// Function to check if the URL is a LeetCode submission URL
 function isLeetCodeSubmissionUrl(url) {
+  console.log(`Checking if URL is a LeetCode submission URL: ${url}`)
   const regex = /^https:\/\/leetcode\.com\/submissions\/detail\/\d+\/check\/$/
   return regex.test(url)
 }
 
+// Function to get the problem link at the current index
 async function getProblemLinkAtIndex(probs, currIndex) {
+  console.log(`Getting problem link at index: ${currIndex}`)
   try {
     if (currIndex >= probs.length || currIndex < 0) {
       throw new Error(`Index ${currIndex} is out of bounds`)
@@ -205,7 +228,9 @@ async function getProblemLinkAtIndex(probs, currIndex) {
   }
 }
 
+// Function to set a redirect rule for the current tab
 function setRedirectRuleForTab(redirectUrl) {
+  console.log(`Setting redirect rule for URL: ${redirectUrl}`)
   const redirectRule = {
     id: Rule_ID,
     priority: 1,
@@ -215,7 +240,11 @@ function setRedirectRuleForTab(redirectUrl) {
     },
     condition: {
       urlFilter: "*://*/*",
-      excludedInitiatorDomains: ["developer.chrome.com"],
+      excludedRequestDomains: [
+        "developer.chrome.com",
+        "chrome-extension://*",
+        "mail.google.com"
+      ],
       resourceTypes: ["main_frame"]
     }
   }
@@ -226,66 +255,8 @@ function setRedirectRuleForTab(redirectUrl) {
       addRules: [redirectRule as chrome.declarativeNetRequest.Rule]
     })
 
-    console.log("Redirect rule updated for tab:")
+    console.log("Redirect rule set successfully")
   } catch (error) {
-    console.error("Error updating redirect rule for tab:", error)
+    console.error("Error setting redirect rule:", error)
   }
 }
-
-// Alarm Management
-chrome.alarms.onAlarm.addListener(async (alarm) => {
-  if (alarm.name === ALARM_NAME) {
-    console.log("Alarm triggered, resetting probSolved count.")
-    probSolved = 0
-    await saveIndexAndProbSolved()
-    isAlarmActive = false // Mark alarm as inactive
-  }
-})
-
-async function checkAlarmState() {
-  try {
-    const storedData = await chrome.storage.local.get(STORAGE_KEY)
-    const alarmEnabled = storedData[STORAGE_KEY] || false
-
-    if (alarmEnabled) {
-      await chrome.alarms.clear(ALARM_NAME)
-      await chrome.alarms.create(ALARM_NAME, {
-        periodInMinutes: ALARM_DELAY_MINUTES
-      })
-      console.log(`Alarm set to repeat every ${ALARM_DELAY_MINUTES} minutes!`)
-      isAlarmActive = true
-      return true
-    } else {
-      console.log("Alarm is currently disabled by user preferences.")
-      return false
-    }
-  } catch (error) {
-    console.error("Error managing alarm:", error)
-    return false
-  }
-}
-
-// Enable alarm on installation
-chrome.runtime.onInstalled.addListener(async () => {
-  try {
-    await chrome.storage.local.set({ [STORAGE_KEY]: true })
-    console.log("Alarm enabled on installation.")
-  } catch (error) {
-    console.error("Error enabling alarm on installation:", error)
-  }
-})
-
-// Main initialization
-async function initialize() {
-  await loadIndexAndProbSolved()
-  addWebRequestListener()
-  checkAlarmState().then((isAlarmEnabled) => {
-    if (isAlarmEnabled) {
-      console.log("Alarm is enabled")
-    } else {
-      console.log("Alarm is disabled")
-    }
-  })
-}
-
-initialize()
