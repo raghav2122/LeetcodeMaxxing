@@ -2,646 +2,781 @@
   {
     "idNo": 1,
     "probName": "Set Matrix Zeros",
-    "lcLink": "https://leetcode.com/problems/set-matrix-zeroes/"
+    "lcLink": "https://leetcode.com/problems/set-matrix-zeroes/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 2,
     "probName": "Pascal's Triangle",
-    "lcLink": "https://leetcode.com/problems/pascals-triangle/"
+    "lcLink": "https://leetcode.com/problems/pascals-triangle/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 3,
     "probName": "Next Permutation",
-    "lcLink": "https://leetcode.com/problems/next-permutation/"
+    "lcLink": "https://leetcode.com/problems/next-permutation/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 4,
     "probName": "Kadane's Algorithm",
-    "lcLink": "https://leetcode.com/problems/maximum-subarray/"
+    "lcLink": "https://leetcode.com/problems/maximum-subarray/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 5,
     "probName": "Sort an array of 0's, 1's and 2's",
-    "lcLink": "https://leetcode.com/problems/sort-colors/"
+    "lcLink": "https://leetcode.com/problems/sort-colors/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 6,
     "probName": "Stock Buy and Sell",
-    "lcLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+    "lcLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 7,
     "probName": "Rotate Matrix",
-    "lcLink": "https://leetcode.com/problems/rotate-image/"
+    "lcLink": "https://leetcode.com/problems/rotate-image/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 8,
     "probName": "Merge Overlapping Subintervals",
-    "lcLink": "https://leetcode.com/problems/merge-intervals/"
+    "lcLink": "https://leetcode.com/problems/merge-intervals/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 9,
-    "probName": "Merge two sorted arrays without extra spac…",
-    "lcLink": "https://leetcode.com/problems/merge-sorted-array/"
+    "probName": "Merge two sorted arrays without extra space",
+    "lcLink": "https://leetcode.com/problems/merge-sorted-array/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 10,
-    "probName": "Find the duplicate in an array of N+1 inte…",
-    "lcLink": "https://leetcode.com/problems/find-the-duplicate-number/"
+    "probName": "Find the duplicate in an array of N+1 integers",
+    "lcLink": "https://leetcode.com/problems/find-the-duplicate-number/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 11,
     "probName": "Search in a 2 D matrix",
-    "lcLink": "https://leetcode.com/problems/search-a-2d-matrix/"
+    "lcLink": "https://leetcode.com/problems/search-a-2d-matrix/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 12,
     "probName": "Pow(x, n)",
-    "lcLink": "https://leetcode.com/problems/powx-n/"
+    "lcLink": "https://leetcode.com/problems/powx-n/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 13,
     "probName": "Majority Element (>n/2 times)",
-    "lcLink": "https://leetcode.com/problems/majority-element/"
+    "lcLink": "https://leetcode.com/problems/majority-element/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 14,
     "probName": "Majority Element (n/3 times)",
-    "lcLink": "https://leetcode.com/problems/majority-element-ii/"
+    "lcLink": "https://leetcode.com/problems/majority-element-ii/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 15,
     "probName": "Grid Unique Paths",
-    "lcLink": "https://leetcode.com/problems/unique-paths/"
+    "lcLink": "https://leetcode.com/problems/unique-paths/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 16,
     "probName": "Reverse Pairs (Leetcode)",
-    "lcLink": "https://leetcode.com/problems/reverse-pairs/"
+    "lcLink": "https://leetcode.com/problems/reverse-pairs/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 17,
     "probName": "2Sum Problem",
-    "lcLink": "https://leetcode.com/problems/two-sum/"
+    "lcLink": "https://leetcode.com/problems/two-sum/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 18,
     "probName": "4-Sum Problem",
-    "lcLink": "https://leetcode.com/problems/4sum/"
+    "lcLink": "https://leetcode.com/problems/4sum/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 19,
     "probName": "Longest Consecutive Sequence",
-    "lcLink": "https://leetcode.com/problems/longest-consecutive-sequence/"
+    "lcLink": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 20,
     "probName": "Longest Substring without repeat",
-    "lcLink": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+    "lcLink": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 21,
     "probName": "Reverse a LinkedList",
-    "lcLink": "https://leetcode.com/problems/reverse-linked-list/"
+    "lcLink": "https://leetcode.com/problems/reverse-linked-list/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 22,
     "probName": "Find the middle of LinkedList",
-    "lcLink": "https://leetcode.com/problems/middle-of-the-linked-list/"
+    "lcLink": "https://leetcode.com/problems/middle-of-the-linked-list/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 23,
-    "probName": "Merge two sorted Linked List (use method u…",
-    "lcLink": "https://leetcode.com/problems/merge-two-sorted-lists/"
+    "probName": "Merge two sorted Linked List (use method used in mergeSort)",
+    "lcLink": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "difficulty": ""
   },
   {
     "idNo": 24,
     "probName": "Remove N-th node from back of LinkedList",
-    "lcLink": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+    "lcLink": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 25,
     "probName": "Add two numbers as LinkedList",
-    "lcLink": "https://leetcode.com/problems/add-two-numbers/"
+    "lcLink": "https://leetcode.com/problems/add-two-numbers/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 26,
-    "probName": "Delete a given Node when a node is given.(…",
-    "lcLink": "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+    "probName": "Delete a given Node when a node is given.(0(1) solution)",
+    "lcLink": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 27,
     "probName": "Find intersection point of Y LinkedList",
-    "lcLink": "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+    "lcLink": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 28,
     "probName": "Detect a cycle in Linked List",
-    "lcLink": "https://leetcode.com/problems/linked-list-cycle/"
+    "lcLink": "https://leetcode.com/problems/linked-list-cycle/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 29,
     "probName": "Reverse a LinkedList in groups of size k.",
-    "lcLink": "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+    "lcLink": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 30,
-    "probName": "Check if a LinkedList is palindrome or not…",
-    "lcLink": "https://leetcode.com/problems/palindrome-linked-list/"
+    "probName": "Check if a LinkedList is palindrome or not.",
+    "lcLink": "https://leetcode.com/problems/palindrome-linked-list/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 31,
-    "probName": "Find the starting point of the Loop of Lin…",
-    "lcLink": "https://leetcode.com/problems/linked-list-cycle-ii/"
+    "probName": "Find the starting point of the Loop of LinkedList",
+    "lcLink": "https://leetcode.com/problems/linked-list-cycle-ii/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 32,
     "probName": "Rotate a LinkedList",
-    "lcLink": "https://leetcode.com/problems/rotate-list/description/"
+    "lcLink": "https://leetcode.com/problems/rotate-list/description/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 33,
-    "probName": "Clone a Linked List with random and next p…",
-    "lcLink": "https://leetcode.com/problems/copy-list-with-random-pointer/"
+    "probName": "Clone a Linked List with random and next pointer",
+    "lcLink": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 34,
     "probName": "3 sum",
-    "lcLink": "https://leetcode.com/problems/3sum/"
+    "lcLink": "https://leetcode.com/problems/3sum/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 35,
     "probName": "Trapping Rainwater",
-    "lcLink": "https://leetcode.com/problems/trapping-rain-water/"
+    "lcLink": "https://leetcode.com/problems/trapping-rain-water/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 36,
     "probName": "Remove Duplicate from Sorted array",
-    "lcLink": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+    "lcLink": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 37,
     "probName": "Max consecutive ones",
-    "lcLink": "https://leetcode.com/problems/max-consecutive-ones/"
+    "lcLink": "https://leetcode.com/problems/max-consecutive-ones/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 38,
-    "probName": "Subset-II",
-    "lcLink": "https://leetcode.com/problems/subsets-ii/"
+    "probName": "Assign Cookies",
+    "lcLink": "https://leetcode.com/problems/assign-cookies/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 39,
-    "probName": "Combination sum-1",
-    "lcLink": "https://leetcode.com/problems/combination-sum/"
+    "probName": "Subset-II",
+    "lcLink": "https://leetcode.com/problems/subsets-ii/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 40,
-    "probName": "Combination sum-2",
-    "lcLink": "https://leetcode.com/problems/combination-sum-ii/"
+    "probName": "Combination sum-1",
+    "lcLink": "https://leetcode.com/problems/combination-sum/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 41,
-    "probName": "Palindrome Partitioning",
-    "lcLink": "https://leetcode.com/problems/palindrome-partitioning/"
+    "probName": "Combination sum-2",
+    "lcLink": "https://leetcode.com/problems/combination-sum-ii/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 42,
-    "probName": "K-th permutation Sequence",
-    "lcLink": "https://leetcode.com/problems/permutation-sequence/"
+    "probName": "Palindrome Partitioning",
+    "lcLink": "https://leetcode.com/problems/palindrome-partitioning/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 43,
-    "probName": "Print all permutations of a string/array",
-    "lcLink": "https://leetcode.com/problems/permutations/"
+    "probName": "K-th permutation Sequence",
+    "lcLink": "https://leetcode.com/problems/permutation-sequence/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 44,
-    "probName": "N queens Problem",
-    "lcLink": "https://leetcode.com/problems/n-queens/"
+    "probName": "Print all permutations of a string/array",
+    "lcLink": "https://leetcode.com/problems/permutations/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 45,
-    "probName": "Sudoko Solver",
-    "lcLink": "https://leetcode.com/problems/sudoku-solver/"
+    "probName": "N queens Problem",
+    "lcLink": "https://leetcode.com/problems/n-queens/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 46,
-    "probName": "Find the element that appears once in a so…",
-    "lcLink": "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+    "probName": "Sudoko Solver",
+    "lcLink": "https://leetcode.com/problems/sudoku-solver/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 47,
-    "probName": "Search element in a sorted and rotated arr…",
-    "lcLink": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+    "probName": "Find the element that appears once in a sorted array, and the rest element appears twice (Binary search)",
+    "lcLink": "https://leetcode.com/problems/single-element-in-a-sorted-array/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 48,
-    "probName": "Median of 2 sorted arrays",
-    "lcLink": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+    "probName": "Search element in a sorted and rotated array/ find pivot where it is rotated",
+    "lcLink": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 49,
-    "probName": "Kth Largest Element",
-    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+    "probName": "Median of 2 sorted arrays",
+    "lcLink": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 50,
-    "probName": "Find Median from Data Stream",
-    "lcLink": "https://leetcode.com/problems/find-median-from-data-stream/"
+    "probName": "Kth Largest Element",
+    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 51,
-    "probName": "K most frequent elements",
-    "lcLink": "https://leetcode.com/problems/top-k-frequent-elements/"
+    "probName": "Find Median from Data Stream",
+    "lcLink": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 52,
-    "probName": "Implement Stack using Queue (using single …",
-    "lcLink": "https://leetcode.com/problems/implement-stack-using-queues/"
+    "probName": "K most frequent elements",
+    "lcLink": "https://leetcode.com/problems/top-k-frequent-elements/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 53,
-    "probName": "Implement Queue using Stack (0(1) amortize…",
-    "lcLink": "https://leetcode.com/problems/implement-queue-using-stacks/"
+    "probName": "Implement Stack using Queue (using single queue)",
+    "lcLink": "https://leetcode.com/problems/implement-stack-using-queues/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 54,
-    "probName": "Check for balanced parentheses",
-    "lcLink": "https://leetcode.com/problems/valid-parentheses/"
+    "probName": "Implement Queue using Stack (0(1) amortized method)",
+    "lcLink": "https://leetcode.com/problems/implement-queue-using-stacks/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 55,
-    "probName": "Next Greater Element",
-    "lcLink": "https://leetcode.com/problems/next-greater-element-i/"
+    "probName": "Check for balanced parentheses",
+    "lcLink": "https://leetcode.com/problems/valid-parentheses/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 56,
-    "probName": "LRU cache (IMPORTANT)",
-    "lcLink": "https://leetcode.com/problems/lru-cache/"
+    "probName": "Next Greater Element",
+    "lcLink": "https://leetcode.com/problems/next-greater-element-i/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 57,
-    "probName": "LFU cache",
-    "lcLink": "https://leetcode.com/problems/lfu-cache/"
+    "probName": "LRU cache (IMPORTANT)",
+    "lcLink": "https://leetcode.com/problems/lru-cache/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 58,
-    "probName": "Largest rectangle in a histogram",
-    "lcLink": "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+    "probName": "LFU cache",
+    "lcLink": "https://leetcode.com/problems/lfu-cache/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 59,
-    "probName": "Sliding Window maximum",
-    "lcLink": "https://leetcode.com/problems/sliding-window-maximum/"
+    "probName": "Largest rectangle in a histogram",
+    "lcLink": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 60,
-    "probName": "Implement Min Stack",
-    "lcLink": "https://leetcode.com/problems/min-stack/"
+    "probName": "Sliding Window maximum",
+    "lcLink": "https://leetcode.com/problems/sliding-window-maximum/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 61,
-    "probName": "Rotten Orange (Using BFS)",
-    "lcLink": "https://leetcode.com/problems/rotting-oranges/"
+    "probName": "Implement Min Stack",
+    "lcLink": "https://leetcode.com/problems/min-stack/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 62,
-    "probName": "Stock span problem",
-    "lcLink": "https://leetcode.com/problems/online-stock-span/"
+    "probName": "Rotten Orange (Using BFS)",
+    "lcLink": "https://leetcode.com/problems/rotting-oranges/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 63,
-    "probName": "Reverse Words in a String",
-    "lcLink": "https://leetcode.com/problems/reverse-words-in-a-string/"
+    "probName": "Stock span problem",
+    "lcLink": "https://leetcode.com/problems/online-stock-span/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 64,
-    "probName": "Longest Palindrome in a string",
-    "lcLink": "https://leetcode.com/problems/longest-palindromic-substring/"
+    "probName": "Reverse Words in a String",
+    "lcLink": "https://leetcode.com/problems/reverse-words-in-a-string/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 65,
-    "probName": "Roman Number to Integer and vice versa",
-    "lcLink": "https://leetcode.com/problems/roman-to-integer/"
+    "probName": "Longest Palindrome in a string",
+    "lcLink": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 66,
-    "probName": "Implement ATOI/STRSTR",
-    "lcLink": "https://leetcode.com/problems/string-to-integer-atoi/"
+    "probName": "Roman Number to Integer and vice versa",
+    "lcLink": "https://leetcode.com/problems/roman-to-integer/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 67,
-    "probName": "Longest Common Prefix",
-    "lcLink": "https://leetcode.com/problems/longest-common-prefix/"
+    "probName": "Implement ATOI/STRSTR",
+    "lcLink": "https://leetcode.com/problems/string-to-integer-atoi/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 68,
-    "probName": "Rabin Karp",
-    "lcLink": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation"
+    "probName": "Longest Common Prefix",
+    "lcLink": "https://leetcode.com/problems/longest-common-prefix/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 69,
-    "probName": "Z-Function",
-    "lcLink": "https://leetcode.com/problems/implement-strstr/"
+    "probName": "Rabin Karp",
+    "lcLink": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation",
+    "difficulty": "Hard"
   },
   {
     "idNo": 70,
-    "probName": "KMP algo / LPS(pi) array",
-    "lcLink": "https://leetcode.com/problems/implement-strstr/"
+    "probName": "Z-Function",
+    "lcLink": "https://leetcode.com/problems/implement-strstr/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 71,
-    "probName": "Check for Anagrams",
-    "lcLink": "https://leetcode.com/problems/valid-anagram/"
+    "probName": "KMP algo / LPS(pi) array",
+    "lcLink": "https://leetcode.com/problems/implement-strstr/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 72,
-    "probName": "Count and say",
-    "lcLink": "https://leetcode.com/problems/count-and-say/"
+    "probName": "Check for Anagrams",
+    "lcLink": "https://leetcode.com/problems/valid-anagram/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 73,
-    "probName": "Compare version numbers",
-    "lcLink": "https://leetcode.com/problems/compare-version-numbers/"
+    "probName": "Count and say",
+    "lcLink": "https://leetcode.com/problems/count-and-say/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 74,
-    "probName": "Inorder Traversal",
-    "lcLink": "https://leetcode.com/problems/binary-tree-inorder-traversal/"
+    "probName": "Compare version numbers",
+    "lcLink": "https://leetcode.com/problems/compare-version-numbers/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 75,
-    "probName": "Preorder Traversal",
-    "lcLink": "https://leetcode.com/problems/binary-tree-preorder-traversal/"
+    "probName": "Inorder Traversal",
+    "lcLink": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 76,
-    "probName": "Postorder Traversal",
-    "lcLink": "https://leetcode.com/problems/binary-tree-postorder-traversal/"
+    "probName": "Preorder Traversal",
+    "lcLink": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 77,
-    "probName": "Morris Inorder Traversal",
-    "lcLink": "https://leetcode.com/problems/binary-tree-inorder-traversal/"
+    "probName": "Postorder Traversal",
+    "lcLink": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 78,
-    "probName": "Vertical order traversal",
-    "lcLink": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+    "probName": "Morris Inorder Traversal",
+    "lcLink": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 79,
-    "probName": "Max width of a Binary Tree",
-    "lcLink": "https://leetcode.com/problems/maximum-width-of-binary-tree/"
+    "probName": "Vertical order traversal",
+    "lcLink": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 80,
-    "probName": "Level order Traversal / Level order traver…",
-    "lcLink": "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+    "probName": "Max width of a Binary Tree",
+    "lcLink": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 81,
-    "probName": "Height of a Binary Tree",
-    "lcLink": "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+    "probName": "Level order Traversal / Level order traversal in spiral form",
+    "lcLink": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 82,
-    "probName": "Diameter of Binary Tree",
-    "lcLink": "https://leetcode.com/problems/diameter-of-binary-tree/"
+    "probName": "Height of a Binary Tree",
+    "lcLink": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 83,
-    "probName": "Check if the Binary tree is height-balance…",
-    "lcLink": "https://leetcode.com/problems/balanced-binary-tree/"
+    "probName": "Diameter of Binary Tree",
+    "lcLink": "https://leetcode.com/problems/diameter-of-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 84,
-    "probName": "LCA in Binary Tree",
-    "lcLink": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+    "probName": "Check if the Binary tree is height-balanced or not",
+    "lcLink": "https://leetcode.com/problems/balanced-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 85,
-    "probName": "Check if two trees are identical or not",
-    "lcLink": "https://leetcode.com/problems/same-tree/"
+    "probName": "LCA in Binary Tree",
+    "lcLink": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 86,
-    "probName": "Zig Zag Traversal of Binary Tree",
-    "lcLink": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+    "probName": "Check if two trees are identical or not",
+    "lcLink": "https://leetcode.com/problems/same-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 87,
-    "probName": "Boundary Traversal of Binary Tree",
-    "lcLink": "https://leetcode.com/problems/boundary-of-binary-tree/"
+    "probName": "Zig Zag Traversal of Binary Tree",
+    "lcLink": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 88,
-    "probName": "Maximum path sum",
-    "lcLink": "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+    "probName": "Boundary Traversal of Binary Tree",
+    "lcLink": "https://leetcode.com/problems/boundary-of-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 89,
-    "probName": "Construct Binary Tree from inorder and pre…",
-    "lcLink": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+    "probName": "Maximum path sum",
+    "lcLink": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 90,
-    "probName": "Construct Binary Tree from Inorder and Pos…",
-    "lcLink": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
+    "probName": "Construct Binary Tree from inorder and preorder",
+    "lcLink": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 91,
-    "probName": "Symmetric Binary Tree",
-    "lcLink": "https://leetcode.com/problems/symmetric-tree/"
+    "probName": "Construct Binary Tree from Inorder and Postorder",
+    "lcLink": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 92,
-    "probName": "Flatten Binary Tree to LinkedList",
-    "lcLink": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+    "probName": "Symmetric Binary Tree",
+    "lcLink": "https://leetcode.com/problems/symmetric-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 93,
-    "probName": "Populate Next Right pointers of Tree",
-    "lcLink": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
+    "probName": "Flatten Binary Tree to LinkedList",
+    "lcLink": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 94,
-    "probName": "Search given Key in BST",
-    "lcLink": "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+    "probName": "Populate Next Right pointers of Tree",
+    "lcLink": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 95,
-    "probName": "Construct BST from given keys",
-    "lcLink": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
+    "probName": "Search given Key in BST",
+    "lcLink": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 96,
-    "probName": "Construct a BST from a preorder traversal",
-    "lcLink": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
+    "probName": "Construct BST from given keys",
+    "lcLink": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 97,
-    "probName": "Check is a BT is BST or not",
-    "lcLink": "https://leetcode.com/problems/validate-binary-search-tree/"
+    "probName": "Construct a BST from a preorder traversal",
+    "lcLink": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 98,
-    "probName": "Find LCA of two nodes in BST",
-    "lcLink": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+    "probName": "Check is a BT is BST or not",
+    "lcLink": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 99,
-    "probName": "Find K-th smallest element in BST",
-    "lcLink": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
+    "probName": "Find LCA of two nodes in BST",
+    "lcLink": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 100,
-    "probName": "Find a pair with a given sum in BST",
-    "lcLink": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/"
+    "probName": "Find K-th smallest element in BST",
+    "lcLink": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 101,
-    "probName": "BST iterator",
-    "lcLink": "https://leetcode.com/problems/binary-search-tree-iterator/"
+    "probName": "Find a pair with a given sum in BST",
+    "lcLink": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 102,
-    "probName": "Size of the largest BST in a Binary Tree",
-    "lcLink": "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/"
+    "probName": "BST iterator",
+    "lcLink": "https://leetcode.com/problems/binary-search-tree-iterator/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 103,
-    "probName": "Serialize and deserialize Binary Tree",
-    "lcLink": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+    "probName": "Size of the largest BST in a Binary Tree",
+    "lcLink": "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 104,
-    "probName": "Binary Tree to Double Linked List",
-    "lcLink": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+    "probName": "Serialize and deserialize Binary Tree",
+    "lcLink": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 105,
-    "probName": "Find median in a stream of running integer…",
-    "lcLink": "https://leetcode.com/problems/find-median-from-data-stream/"
+    "probName": "Binary Tree to Double Linked List",
+    "lcLink": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 106,
-    "probName": "K-th largest element in a stream.",
-    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+    "probName": "Find median in a stream of running integers.",
+    "lcLink": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 107,
-    "probName": "K-th largest element in an unsorted array.",
-    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+    "probName": "K-th largest element in a stream.",
+    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 108,
-    "probName": "Flood-fill Algorithm",
-    "lcLink": "https://leetcode.com/problems/flood-fill/"
+    "probName": "K-th largest element in an unsorted array.",
+    "lcLink": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "difficulty": "Easy"
   },
   {
     "idNo": 109,
-    "probName": "Clone a graph (Not that easy as it looks)",
-    "lcLink": "https://leetcode.com/problems/clone-graph/"
+    "probName": "Flood-fill Algorithm",
+    "lcLink": "https://leetcode.com/problems/flood-fill/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 110,
-    "probName": "Detect A cycle in Undirected Graph using B…",
-    "lcLink": "https://leetcode.com/problems/course-schedule/"
+    "probName": "Clone a graph (Not that easy as it looks)",
+    "lcLink": "https://leetcode.com/problems/clone-graph/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 111,
-    "probName": "Detect A cycle in Undirected Graph using D…",
-    "lcLink": "https://leetcode.com/problems/course-schedule/"
+    "probName": "Detect A cycle in Undirected Graph using BFS",
+    "lcLink": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 112,
-    "probName": "Detect A cycle in a Directed Graph using D…",
-    "lcLink": "https://leetcode.com/problems/course-schedule/"
+    "probName": "Detect A cycle in Undirected Graph using DFS",
+    "lcLink": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 113,
-    "probName": "Detect A cycle in a Directed Graph using B…",
-    "lcLink": "https://leetcode.com/problems/course-schedule/"
+    "probName": "Detect A cycle in a Directed Graph using DFS",
+    "lcLink": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 114,
-    "probName": "Number of islands(Do in Grid and Graph Bot…",
-    "lcLink": "https://leetcode.com/problems/number-of-islands/"
+    "probName": "Detect A cycle in a Directed Graph using BFS",
+    "lcLink": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 115,
-    "probName": "Bipartite Check using BFS",
-    "lcLink": "https://leetcode.com/problems/is-graph-bipartite/"
+    "probName": "Number of islands(Do in Grid and Graph Both)",
+    "lcLink": "https://leetcode.com/problems/number-of-islands/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 116,
-    "probName": "Bipartite Check using DFS",
-    "lcLink": "https://leetcode.com/problems/is-graph-bipartite/"
+    "probName": "Bipartite Check using BFS",
+    "lcLink": "https://leetcode.com/problems/is-graph-bipartite/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 117,
-    "probName": "Strongly Connected Component(using KosaRaj…",
-    "lcLink": "https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/766485/kosaraju-algorithm-on"
+    "probName": "Bipartite Check using DFS",
+    "lcLink": "https://leetcode.com/problems/is-graph-bipartite/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 118,
-    "probName": "Max Product Subarray",
-    "lcLink": "https://leetcode.com/problems/maximum-product-subarray/"
+    "probName": "Strongly Connected Component(using KosaRajuΓÇÖs algo)",
+    "lcLink": "https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/766485/kosaraju-algorithm-on",
+    "difficulty": "Hard"
   },
   {
     "idNo": 119,
-    "probName": "Longest Increasing Subsequence",
-    "lcLink": "https://leetcode.com/problems/longest-increasing-subsequence/"
+    "probName": "Max Product Subarray",
+    "lcLink": "https://leetcode.com/problems/maximum-product-subarray/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 120,
-    "probName": "Longest Common Subsequence",
-    "lcLink": "https://leetcode.com/problems/longest-common-subsequence/"
+    "probName": "Longest Increasing Subsequence",
+    "lcLink": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 121,
-    "probName": "Edit Distance",
-    "lcLink": "https://leetcode.com/problems/edit-distance/"
+    "probName": "Longest Common Subsequence",
+    "lcLink": "https://leetcode.com/problems/longest-common-subsequence/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 122,
-    "probName": "Minimum sum path in the matrix, (count pat…",
-    "lcLink": "https://leetcode.com/problems/minimum-path-sum/"
+    "probName": "Edit Distance",
+    "lcLink": "https://leetcode.com/problems/edit-distance/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 123,
-    "probName": "Coin change",
-    "lcLink": "https://leetcode.com/problems/coin-change/"
+    "probName": "Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)",
+    "lcLink": "https://leetcode.com/problems/minimum-path-sum/",
+    "difficulty": ""
   },
   {
     "idNo": 124,
-    "probName": "Subset Sum",
-    "lcLink": "https://leetcode.com/problems/partition-equal-subset-sum/"
+    "probName": "Coin change",
+    "lcLink": "https://leetcode.com/problems/coin-change/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 125,
-    "probName": "Rod Cutting",
-    "lcLink": "https://leetcode.com/problems/minimum-cost-to-cut-a-stick/"
+    "probName": "Subset Sum",
+    "lcLink": "https://leetcode.com/problems/partition-equal-subset-sum/",
+    "difficulty": "Medium"
   },
   {
     "idNo": 126,
-    "probName": "Word Break",
-    "lcLink": "https://leetcode.com/problems/word-break/"
+    "probName": "Rod Cutting",
+    "lcLink": "https://leetcode.com/problems/minimum-cost-to-cut-a-stick/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 127,
-    "probName": "Implement Trie (Prefix Tree)",
-    "lcLink": "https://leetcode.com/problems/implement-trie-prefix-tree/"
+    "probName": "Word Break",
+    "lcLink": "https://leetcode.com/problems/word-break/",
+    "difficulty": ""
   },
   {
     "idNo": 128,
-    "probName": "Maximum XOR of two numbers in an array",
-    "lcLink": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+    "probName": "Implement Trie (Prefix Tree)",
+    "lcLink": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "difficulty": "Hard"
   },
   {
     "idNo": 129,
+    "probName": "Maximum XOR of two numbers in an array",
+    "lcLink": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+    "difficulty": "Medium"
+  },
+  {
+    "idNo": 130,
     "probName": "Maximum XOR With an Element From Array",
-    "lcLink": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
+    "lcLink": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/",
+    "difficulty": "Hard"
   }
 ]

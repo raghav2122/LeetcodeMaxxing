@@ -5,46 +5,53 @@ const fs = require("fs")
 const path = require("path")
 
 const scrapeProbs = async (url: string) => {
-    try {
-      const browser: Browser = await puppeteer.launch({ headless: false })
-      const page = await browser.newPage()
-      await page.goto(url)
-  
-      const probData = await page.evaluate(() => {
-        const tdElements = Array.from(document.querySelectorAll("tr"))
-        const filteredData = tdElements
-          .map((tdata: any) => ({
-            probName: tdata.querySelector("td:nth-child(2)")?.textContent,
-            lcLink: tdata
-              .querySelector("td[title='Leetcode link'] a")
-              ?.getAttribute("href")
-          }))
-          .filter((item) => item.probName && item.lcLink && item.lcLink.includes('https://leetcode.com/problems/'))
-  
-        const data = filteredData.map((item, index) => ({
-          idNo: index + 1,
-          probName: item.probName,
-          lcLink: item.lcLink
+  try {
+    const browser: Browser = await puppeteer.launch({ headless: false })
+    const page = await browser.newPage()
+    await page.goto(url)
+
+    const probData = await page.evaluate(() => {
+      const tdElements = Array.from(document.querySelectorAll("tr"))
+      const filteredData = tdElements
+        .map((tdata: any) => ({
+          probName: tdata.querySelector("td:nth-child(2)")?.textContent,
+          lcLink: tdata
+            .querySelector("td:nth-child(5) a")
+            ?.getAttribute("href"),
+          difficulty: tdata.querySelector("td:nth-child(7)")?.textContent
         }))
-        data.forEach((item) => {
-          console.log(
-            "idNo:",
-            item.idNo,
-            "probName:",
-            item.probName,
-            "lcLink:",
-            item.lcLink
-          )
-        })
-        return data
+        .filter(
+          (item) =>
+            item.probName &&
+            item.lcLink &&
+            item.lcLink.includes("https://leetcode.com/problems/")
+        )
+      const data = filteredData.map((item, index) => ({
+        idNo: index + 1,
+        probName: item.probName,
+        lcLink: item.lcLink,
+        difficulty: item.difficulty
+      }))
+      data.forEach((item) => {
+        console.log(
+          "idNo:",
+          item.idNo,
+          "probName:",
+          item.probName,
+          "lcLink:",
+          item.lcLink,
+          "difficulty:",
+          item.difficulty
+        )
       })
-      await browser.close()
-      return probData
-    } catch (error) {
-      return undefined
-    }
+      return data
+    })
+    await browser.close()
+    return probData
+  } catch (error) {
+    return undefined
   }
-  
+}
 
 // ------------------------------------------------------------
 

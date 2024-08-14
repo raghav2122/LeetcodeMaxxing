@@ -17,9 +17,9 @@ const CheckboxOptions: React.FC<CheckboxOptionsProps> = ({
   handleOptionChange
 }) => {
   const [options, setOptions] = useState<CheckboxOption[]>([
-    { value: "Striver Begineer", checked: false },
-    { value: "Striver Medium", checked: false },
-    { value: "Striver Expert ", checked: false }
+    { value: "Striver Begineer sheet", checked: false },
+    { value: "Striver Medium sheet", checked: false },
+    { value: "Striver Expert sheet", checked: false }
   ])
 
   const [counter, setCounter] = useState<number>(0)
