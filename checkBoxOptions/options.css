@@ -1,0 +1,49 @@
+.popup-options-container {
+    padding: 20px;
+    background-color: #f5deb3;
+    border-radius: 5px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.popup-options-container label {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.popup-options-container select,
+.popup-options-container input[type="number"],
+.popup-options-container button {
+    display: block;
+    width: 80%;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.popup-options-container input[type="checkbox"] {
+    display: flex
+}
+
+.popup-options-container button {
+    background-color: #008CBA;
+    /* Blue submit button color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.popup-options-container button:hover {
+    background-color: #005f6b;
+}
+
+#dqlText {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 10px;
+}

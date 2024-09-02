@@ -21,6 +21,15 @@ let currIndex = 0
 let probSolved = 0
 let isAlarmActive = false // Flag to track alarm state
 
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log("Message received in service worker:", message)
+  if (message.type === "FORM_SUBMIT") {
+    console.log("Form data:", message.payload)
+    // Optional: send a response back to the popup
+    sendResponse({ status: "received" })
+  }
+})
+
 // Function to load index and problem solved count from storage
 async function loadIndexAndProbSolved() {
   console.log("Loading index and probSolved from storage")

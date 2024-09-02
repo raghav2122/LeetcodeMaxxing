@@ -1,94 +1,52 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
+import { useForm } from "react-hook-form"
+import type { SubmitHandler } from "react-hook-form"
 
-import "checkBoxOptions/CheckboxOptions.css" // Import the CSS file
+import type { PopupOptions } from "../types/popup-types"
 
-interface CheckboxOption {
-  value: string
-  checked: boolean
-}
+import "./options.css"
 
-interface CheckboxOptionsProps {
-  option: string | null
-  handleOptionChange: (selectedOption: string) => void
-}
+export function PopupOptions() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<PopupOptions>()
 
-const CheckboxOptions: React.FC<CheckboxOptionsProps> = ({
-  option,
-  handleOptionChange
-}) => {
-  const [options, setOptions] = useState<CheckboxOption[]>([
-    { value: "Striver Begineer sheet", checked: false },
-    { value: "Striver Medium sheet", checked: false },
-    { value: "Striver Expert sheet", checked: false }
-  ])
+  const onSubmit: SubmitHandler<PopupOptions> = (data) => {
+    console.log(data) // For debugging in the popup
 
-  const [counter, setCounter] = useState<number>(0)
-  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false)
-
-  const toggleOption = (value: string) => {
-    setOptions((prevOptions) =>
-      prevOptions.map((opt) => ({
-        ...opt,
-        checked: opt.value === value ? !opt.checked : opt.checked
-      }))
+    // Send data to the service worker
+    console.log("Sending message to service worker")
+    chrome.runtime.sendMessage(
+      { type: "FORM_SUBMIT", payload: data },
+      (response) => {
+        console.log("Response from service worker:", response)
+      }
     )
   }
 
-  useEffect(() => {
-    const selectedOption = options.find((opt) => opt.checked)?.value || null
-    handleOptionChange(selectedOption)
-    setCounter(options.filter((opt) => opt.checked).length)
-  }, [options, handleOptionChange])
-
-  const handleDropdownChange = (value: string) => {
-    toggleOption(value)
-  }
-
-  const handleCheckboxChange = (isChecked: boolean) => {
-    setCheckboxChecked(isChecked)
-  }
-
-  const handleCounterChange = (value: string) => {
-    const numValue = parseInt(value)
-    if (!isNaN(numValue)) {
-      setCounter(numValue)
-    }
-  }
-
-  const handleSubmit = () => {
-    // Implement submit logic here
-  }
-
   return (
-    <div className="checkbox-options-container">
-      {" "}
-      {/* Apply the CSS class here */}
-      <select onChange={(e) => handleDropdownChange(e.target.value)}>
-        {options.map((opt: CheckboxOption) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.value.charAt(0).toUpperCase() + opt.value.slice(1)}
-          </option>
-        ))}
-      </select>
-      <div>
-        <input
-          type="checkbox"
-          checked={checkboxChecked}
-          onChange={(e) => handleCheckboxChange(e.target.checked)}
-        />
-        <label>Reset progress</label>
-      </div>
-      <div>
+    <div className="popup-options-container">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Selected DSA Sheet</label>
+        <select {...register("DSA_Sheet.selectedSheet")}>
+          <option value="sheet1">Array Questions</option>
+          <option value="sheet2">Dynamic Programming</option>
+          <option value="sheet3">Graph Theory</option>
+        </select>
+
+        <label>Daily Question Goal</label>
         <input
           type="number"
-          value={counter}
-          onChange={(e) => handleCounterChange(e.target.value)}
+          {...register("DailyQuestionGoal", { valueAsNumber: true })}
         />
-        <label>Daily question limit</label>
-      </div>
-      <button onClick={handleSubmit}>Submit</button>
+        <div className="flex">
+          <label>E:</label>
+          <input type="checkbox" {...register("extensionEnabled")} />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
-
-export default CheckboxOptions
