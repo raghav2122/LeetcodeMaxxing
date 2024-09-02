@@ -13,17 +13,26 @@ export function PopupOptions() {
     formState: { errors }
   } = useForm<PopupOptions>()
 
-  const onSubmit: SubmitHandler<PopupOptions> = (data) => {
-    console.log(data) // For debugging in the popup
+  const onSubmit: SubmitHandler<PopupOptions> = async (data) => {
+    try {
+      const response = await fetch("http://localhost:3001/api/save-data", {
+        // Update URL as needed
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
 
-    // Send data to the service worker
-    console.log("Sending message to service worker")
-    chrome.runtime.sendMessage(
-      { type: "FORM_SUBMIT", payload: data },
-      (response) => {
-        console.log("Response from service worker:", response)
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
       }
-    )
+
+      const result = await response.json()
+      console.log("Data saved successfully:", result)
+    } catch (error) {
+      console.error("Failed to save data:", error)
+    }
   }
 
   return (

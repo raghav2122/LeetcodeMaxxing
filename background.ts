@@ -21,12 +21,29 @@ let currIndex = 0
 let probSolved = 0
 let isAlarmActive = false // Flag to track alarm state
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received in service worker:", message)
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   if (message.type === "FORM_SUBMIT") {
-    console.log("Form data:", message.payload)
-    // Optional: send a response back to the popup
-    sendResponse({ status: "received" })
+    console.log("Received form data:", message.payload)
+
+    try {
+      const response = await fetch("http://localhost:3001/api/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message.payload)
+      })
+
+      const result = await response.json()
+      console.log("Data saved:", result)
+      sendResponse({ status: "success" })
+    } catch (error) {
+      console.error("Error saving data:", error)
+      sendResponse({ status: "error" })
+    }
+
+    // Keep the message channel open for asynchronous response
+    return true
   }
 })
 
