@@ -40,9 +40,9 @@ export function PopupOptions() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Selected DSA Sheet</label>
         <select {...register("DSA_Sheet.selectedSheet")}>
-          <option value="sheet1">Array Questions</option>
-          <option value="sheet2">Dynamic Programming</option>
-          <option value="sheet3">Graph Theory</option>
+          <option value="sheet1">Striver's SDE Sheet</option>
+          <option value="sheet2">Striver's 79 Sheet</option>
+          <option value="sheet3">Blind 75 Sheet</option>
         </select>
 
         <label>Daily Question Goal</label>
