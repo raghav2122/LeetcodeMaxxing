@@ -11,11 +11,13 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.6.2",
     "@plasmohq/storage": "^1.10.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "firebase": "^10.13.1",
     "mongodb": "^6.8.0",
     "mongoose": "^8.6.0",
     "plasmo": "0.86.3",
@@ -34,6 +36,13 @@
     "typescript": "5.3.3"
   },
   "manifest": {
+    "oauth2": {
+      "client_id": "$PLASMO_PUBLIC_FIREBASE_CLIENT_ID",
+      "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ]
+    },
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestFeedback",
