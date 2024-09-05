@@ -43,6 +43,7 @@
         "https://www.googleapis.com/auth/userinfo.profile"
       ]
     },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApQypNg0eXt83SJZ9wkSjSqtTBFJgNJe7dgb2Ww8viBBh9kjLXcS71TzpyXCIx5qebfpvhd+5Ri5NrlvUd+qEmuuLCEO8Q9cbNu1mOXwt5mwzJr5aikceUnZkELR73ZcdCIBPZu37OiVYZdmfUVGpuiCQ5git2mV+jSyovENgkHpM8fXxRpfcHkzMek1d6fTe1L0zrdo4csCxWB6y/DN7PseIhqt7xc20cx/acCuSg+UyMduiWowsvSZKCbxwJmH0n49B96TkpjFcRSzeJD1BuRaPkeV/H54C5JWgIMC4d3soh1hhRiUOduQNLCp8BkeKGLgR9cW+KRRt7xH5I312ewIDAQAB",
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestFeedback",
