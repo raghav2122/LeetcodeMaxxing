@@ -13,6 +13,7 @@ let DSA_Sheet = "sheet1"
 let extensionEnabled = true
 let problemsSolved = 0
 let redirectUrl: string
+let flag: boolean
 
 // Store the problem sheets and their markers in an object
 const sheets = {
@@ -58,7 +59,12 @@ if (!extensionEnabled) {
 } else {
     console.log("Extension is enabled.")
     chrome.tabs.onCreated.addListener(async (tab) => {
+        flag = false
         console.log("Tab created:", tab)
+        if (problemsSolved < dailyGoal) {
+            chrome.webRequest.onCompleted.addListener(thingsAfterLeetcodeResponse, { urls: ["https://leetcode.com/submissions/detail/*/check/"] })
+        }
+        console.log(flag, problemsSolved, dailyGoal)
         if (problemsSolved < dailyGoal) {
             console.log("Target not achieved yet.")
 
@@ -69,46 +75,7 @@ if (!extensionEnabled) {
             console.log("Redirecting to:", redirectUrl)
         }
     })
-
-    chrome.webRequest.onCompleted.addListener(
-        (problemDetails) => {
-            const receivedURL = problemDetails.url
-            const regex = /^https:\/\/leetcode\.com\/submissions\/detail\/\d+\/check\/$/
-
-            if (regex.test(receivedURL) && getProblemStatusAfterSubmission(receivedURL) && problemsSolved <= dailyGoal) {
-                console.log("Problem solved, now checking logs.")
-                if (problemsSolved === dailyGoal) {
-                    problemsSolved++
-                    console.log("Problem solved.", problemsSolved)
-                    console.log("Done for the day")
-                    const sheet = sheets[DSA_Sheet]
-                    sheet.updateMarker(sheet.marker() + 1)
-                    chrome.declarativeNetRequest.updateDynamicRules({
-                        removeRuleIds: [ruleID]
-                    })
-                    return
-                } else if (problemsSolved < dailyGoal && getProblemStatusAfterSubmission(receivedURL)) {
-                    problemsSolved++
-                    console.log("Problem solved.", problemsSolved)
-                    console.log("Redirecting to the next problem.")
-                    const sheet = sheets[DSA_Sheet]
-                    sheet.updateMarker(sheet.marker() + 1)
-                    redirectUrl = sheet.problems[sheet.marker()].lcLink
-                    console.log("Redirecting to:", redirectUrl)
-                    setRedirectRuleForTab(redirectUrl)
-                    return
-                } else {
-                    console.log("Problem not solved yet.")
-                    console.log("Marker:", sheets[DSA_Sheet].marker())
-                    console.log("Problems URL:", receivedURL)
-                }
-            } else {
-                console.log("URL did not match the regex.")
-            }
-        },
-        { urls: ["<all_urls>"] },
-        ["responseHeaders"]
-    )
+    chrome.webRequest.onCompleted.addListener(thingsAfterLeetcodeResponse, { urls: ["https://leetcode.com/submissions/detail/*/check/"] })
 }
 
 function setRedirectRuleForTab(redirectUrl: string) {
@@ -136,12 +103,6 @@ function setRedirectRuleForTab(redirectUrl: string) {
     }
 }
 
-function checkLeetcodeSubmissionUrl(url: string) {
-    console.log(`Checking if URL is a LeetCode submission URL: ${url}`)
-    const regex = /^https:\/\/leetcode\.com\/submissions\/detail\/\d+\/check\/$/
-    return regex.test(url)
-}
-
 async function getProblemStatusAfterSubmission(recivedURL: string) {
     try {
         const response = await fetch(recivedURL)
@@ -150,5 +111,46 @@ async function getProblemStatusAfterSubmission(recivedURL: string) {
     } catch (error) {
         console.error("Error fetching or parsing data:", error)
         return false
+    }
+}
+
+async function thingsAfterLeetcodeResponse(details: chrome.webRequest.WebResponseCacheDetails) {
+    const receivedURL = details.url
+    const regex = /^https:\/\/leetcode\.com\/submissions\/detail\/\d+\/check\/$/
+
+    // Check if the URL matches the regex and the problem is solved
+    if (regex.test(receivedURL) && (await getProblemStatusAfterSubmission(receivedURL)) && problemsSolved < dailyGoal && !flag) {
+        console.log("Problem solved, now checking logs.")
+        flag = true
+        // Increment the number of problems solved
+        problemsSolved++
+        console.log("Problem solved.", problemsSolved)
+        const sheet = sheets[DSA_Sheet]
+        const markerIndex = sheet.marker()
+        console.log(flag, problemsSolved, dailyGoal, "Marker:", markerIndex)
+        // Check if the daily goal is met
+        if (problemsSolved === dailyGoal) {
+            flag = true
+            console.log("Done for the day. Removing redirection rule.")
+            sheet.updateMarker(markerIndex + 1)
+            chrome.webRequest.onCompleted.removeListener(thingsAfterLeetcodeResponse)
+            // Remove the redirection rule because the goal is met
+            chrome.declarativeNetRequest.updateDynamicRules({
+                removeRuleIds: [ruleID]
+            })
+        } else {
+            // If the daily goal is not met, redirect to the next problem
+            chrome.webRequest.onCompleted.removeListener(thingsAfterLeetcodeResponse)
+            console.log("Redirecting to the next problem.")
+            sheet.updateMarker(markerIndex + 1)
+            redirectUrl = sheet.problems[markerIndex].lcLink
+            setRedirectRuleForTab(redirectUrl)
+            console.log("Marker updated to:", markerIndex)
+            console.log("Problem solved.", problemsSolved)
+            console.log("Redirecting to:", redirectUrl)
+            console.log(flag, problemsSolved, dailyGoal)
+        }
+    } else {
+        console.log("URL did not match the regex or problem not solved.")
     }
 }
