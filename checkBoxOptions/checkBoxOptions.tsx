@@ -1,94 +1,85 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import type { SubmitHandler } from "react-hook-form"
-
-import { useStorage } from "@plasmohq/storage/hook"
 
 import type { PopupOptions } from "../types/popup-types"
 
 import "./options.css"
 
-export function PopupOptions() {
-  // Initialize useForm hook for form validation and handling
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors }
-  } = useForm<PopupOptions>()
+export const CheckBoxOptions = () => {
+    const { register, handleSubmit, setValue } = useForm<PopupOptions>()
+    const [dailyGoal, setDailyGoal] = useState<number | null>(null)
+    const [DSA_Sheet, setDSA_Sheet] = useState<string | null>(null)
+    const [extensionEnabled, setExtensionEnabled] = useState<boolean | null>(null)
 
-  // Define useStorage hooks for different states
-  const [DSA_Sheet, setDSA_Sheet] = useStorage("DSA_Sheet", "sheet1") // Default value set to "sheet1"
-  const [DailyQuestionGoal, setDailyQuestionGoal] = useStorage(
-    "DailyQuestionGoal",
-    1
-  ) // Default set to 1
-  const [extensionEnabled, setExtensionEnabled] = useStorage(
-    "extensionEnabled",
-    false
-  ) // Default false
+    useEffect(() => {
+        // Load initial values from local storage
+        chrome.storage.local.get(["dailyGoal", "DSA_Sheet", "extensionEnabled"], (result) => {
+            setDailyGoal(result.dailyGoal ?? 2)
+            setDSA_Sheet(result.DSA_Sheet ?? "sheet1")
+            setExtensionEnabled(result.extensionEnabled ?? true)
 
-  // Synchronize useStorage values with the form when storage values change
-  React.useEffect(() => {
-    setValue("DSA_Sheet.selectedSheet", DSA_Sheet)
-    setValue("DailyQuestionGoal", DailyQuestionGoal)
-    setValue("extensionEnabled", extensionEnabled)
-  }, [DSA_Sheet, DailyQuestionGoal, extensionEnabled, setValue])
+            // Set form values
+            setValue("DailyQuestionGoal", result.dailyGoal ?? 2)
+            setValue("DSA_Sheet", result.DSA_Sheet ?? "sheet1")
+            setValue("extensionEnabled", result.extensionEnabled ?? true)
+        })
+    }, [setValue])
 
-  // Submit handler for form submission
-  const onSubmit: SubmitHandler<PopupOptions> = (data) => {
-    // Send form data to background script
-    chrome.runtime.sendMessage(
-      {
-        type: "FORM_SUBMIT",
-        payload: {
-          DSA_Sheet: data.DSA_Sheet.selectedSheet,
-          DailyQuestionGoal: data.DailyQuestionGoal,
-          extensionEnabled: data.extensionEnabled
-        }
-      },
-      (response) => {
-        if (response.status === "success") {
-          console.log(response.message)
-        }
-      }
-    )
-  }
+    const onSubmit: SubmitHandler<PopupOptions> = (data) => {
+        console.log(data)
+        // Save form data to local storage
+        chrome.storage.local.set(
+            {
+                dailyGoal: data.DailyQuestionGoal,
+                DSA_Sheet: data.DSA_Sheet,
+                extensionEnabled: data.extensionEnabled
+            },
+            () => {
+                console.log("Settings saved")
+                // Update state after saving to storage
+                setDailyGoal(data.DailyQuestionGoal)
+                setDSA_Sheet(data.DSA_Sheet)
+                setExtensionEnabled(data.extensionEnabled)
 
-  return (
-    <div className="popup-options-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Selected DSA Sheet</label>
-        <select
-          {...register("DSA_Sheet.selectedSheet")}
-          value={DSA_Sheet} // Sync select value with storage
-          onChange={(e) => setDSA_Sheet(e.target.value)} // Update storage on change
-        >
-          <option value="sheet1">Striver's SDE Sheet</option>
-          <option value="sheet2">Striver's 79 Sheet</option>
-          <option value="sheet3">Blind 75 Sheet</option>
-        </select>
+                // Notify the background script about the change
+                chrome.runtime.sendMessage({
+                    action: "updateSettings",
+                    settings: data
+                })
 
-        <label>Daily Question Goal</label>
-        <input
-          type="number"
-          {...register("DailyQuestionGoal", { valueAsNumber: true })}
-          value={DailyQuestionGoal} // Sync input value with storage
-          onChange={(e) => setDailyQuestionGoal(Number(e.target.value))} // Update storage on change
-        />
+                // Close the popup
+                window.close()
+            }
+        )
+    }
 
-        <div className="flex">
-          <label>Extension Enabled:</label>
-          <input
-            type="checkbox"
-            {...register("extensionEnabled")}
-            checked={extensionEnabled} // Sync checkbox value with storage
-            onChange={(e) => setExtensionEnabled(e.target.checked)} // Update storage on change
-          />
+    // Don't render the form until we've loaded the initial values
+    if (dailyGoal === null || DSA_Sheet === null || extensionEnabled === null) {
+        return <div>Loading...</div>
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <label>
+                    Daily Question Goal:
+                    <input type="number" {...register("DailyQuestionGoal")} defaultValue={dailyGoal} />
+                </label>
+                <label>
+                    DSA Sheet:
+                    <select {...register("DSA_Sheet")} defaultValue={DSA_Sheet}>
+                        <option value="sheet1">Sheet 1</option>
+                        <option value="sheet2">Sheet 2</option>
+                        <option value="sheet3">Sheet 3</option>
+                    </select>
+                </label>
+                <label>
+                    Extension Enabled:
+                    <input type="checkbox" {...register("extensionEnabled")} defaultChecked={extensionEnabled} />
+                </label>
+                <input type="submit" value="Save Settings" />
+            </form>
         </div>
-
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  )
+    )
 }

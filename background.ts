@@ -71,11 +71,13 @@ async function handleDailyReset() {
     console.log("Daily reset: problemsSolved set to 0")
 }
 
+let extensionEnabled = true
+
 chrome.runtime.onInstalled.addListener(() => {
     updateStorageData({
         striver191ProbsMarker: 0,
-        striverDSAbegineerMarker: 1,
-        striverExpertProbsMarker: 1,
+        striverDSAbegineerMarker: 0,
+        striverExpertProbsMarker: 0,
         dailyGoal: 2,
         DSA_Sheet: "sheet1",
         extensionEnabled: true,
@@ -85,6 +87,16 @@ chrome.runtime.onInstalled.addListener(() => {
     setupDailyResetAlarm()
 })
 
+chrome.storage.local.get("extensionEnabled", (result) => {
+    extensionEnabled = result.extensionEnabled ?? true
+})
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === "updateSettings") {
+        extensionEnabled = message.settings.extensionEnabled
+        // Update other settings as needed
+    }
+})
 // Set up alarm listener
 chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === "dailyReset") {
@@ -95,7 +107,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 chrome.tabs.onCreated.addListener(async (tab) => {
     console.log("Tab created:", tab)
     const data = await getStorageData()
-    if (!data.extensionEnabled) {
+    if (!extensionEnabled) {
         console.log("Extension is disabled.")
         return
     }
