@@ -2,9 +2,9 @@
   "name": "leetcode-maxxing",
   "displayName": "Leetcode Maxxing",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "description": "An extension to help you prepare for DSA",
   "type": "module",
-  "author": "Plasmo Corp. <foss@plasmo.com>",
+  "author": "JaveRynx",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -28,14 +28,12 @@
     "typescript": "5.3.3"
   },
   "manifest": {
-    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApQypNg0eXt83SJZ9wkSjSqtTBFJgNJe7dgb2Ww8viBBh9kjLXcS71TzpyXCIx5qebfpvhd+5Ri5NrlvUd+qEmuuLCEO8Q9cbNu1mOXwt5mwzJr5aikceUnZkELR73ZcdCIBPZu37OiVYZdmfUVGpuiCQ5git2mV+jSyovENgkHpM8fXxRpfcHkzMek1d6fTe1L0zrdo4csCxWB6y/DN7PseIhqt7xc20cx/acCuSg+UyMduiWowsvSZKCbxwJmH0n49B96TkpjFcRSzeJD1BuRaPkeV/H54C5JWgIMC4d3soh1hhRiUOduQNLCp8BkeKGLgR9cW+KRRt7xH5I312ewIDAQAB",
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestFeedback",
       "storage",
       "alarms",
       "tabs",
-      "activeTab",
       "webRequest"
     ],
     "web_accessible_resources": [
