@@ -83,6 +83,17 @@ chrome.storage.local.get("extensionEnabled", (result) => {
     extensionEnabled = result.extensionEnabled ?? true
 })
 
+chrome.storage.onChanged.addListener(async (changes, areaName) => {
+    if (areaName === "local") {
+        const data = await getStorageData()
+
+        // Check if relevant keys like problemsSolved, DSA_Sheet, or extensionEnabled are updated
+        if (changes.problemsSolved || changes.DSA_Sheet || changes.extensionEnabled) {
+            await updateRedirectionRule(data)
+        }
+    }
+})
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "updateSettings") {
         extensionEnabled = message.settings.extensionEnabled
@@ -115,7 +126,7 @@ chrome.tabs.onCreated.addListener(async (tab) => {
 
 function setRedirectRuleForTab(redirectUrl: string) {
     const redirectRule = {
-        id: 1,
+        id: ruleID,
         priority: 1,
         action: {
             type: "redirect",
@@ -129,11 +140,11 @@ function setRedirectRuleForTab(redirectUrl: string) {
     }
     try {
         chrome.declarativeNetRequest.updateDynamicRules({
-            removeRuleIds: [1],
+            removeRuleIds: [ruleID],
             addRules: [redirectRule as chrome.declarativeNetRequest.Rule]
         })
     } catch (error) {
-        // Handle error
+        console.error("Error updating redirect rule:", error)
     }
 }
 
@@ -172,4 +183,21 @@ async function thingsAfterLeetcodeResponse(details: chrome.webRequest.WebRespons
             setRedirectRuleForTab(redirectUrl)
         }
     }
+}
+
+async function updateRedirectionRule(data: StorageData) {
+    if (!data.extensionEnabled || data.problemsSolved >= data.dailyGoal) {
+        // If the extension is disabled or the daily goal is met, remove redirection rules
+        chrome.declarativeNetRequest.updateDynamicRules({
+            removeRuleIds: [ruleID]
+        })
+        return
+    }
+
+    const sheet = sheets[data.DSA_Sheet as keyof typeof sheets]
+    const marker = data[sheet.markerKey as keyof StorageData] as number
+    const redirectUrl = sheet.problems[marker].lcLink
+
+    // Apply the updated redirect rule based on the new storage data
+    setRedirectRuleForTab(redirectUrl)
 }
