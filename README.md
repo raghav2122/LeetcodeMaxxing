@@ -1,38 +1,53 @@
 
 
-# Interview Practice with LeetCode
+# LeetCodeMaxxing Chrome Extension
 
-## Description
+## Overview
 
-This Chrome extension helps you stay consistent with your interview preparation by automatically redirecting you to unsolved LeetCode problems. It locks your browser at the start of the day and ensures you work on a problem until you solve it. The extension also tracks your progress and adjusts the redirection rules based on the number of problems you solve.
+LeetCodeMaxxing is a Chrome extension designed to help you stay focused on solving LeetCode problems. It locks your browser at the start of the day and redirects you to unsolved LeetCode problems until you've completed your daily goal. The extension tracks your progress and adapts based on the number of problems you solve.
+
+## Features
+
+- Automatically locks your browser at the beginning of the day
+- Redirects you to unsolved LeetCode problems
+- Tracks the number of problems solved
+- Customizable daily goals for problem-solving
 
 ## Installation
 
-1. Clone this repository to your local machine.
-2. Open Chrome and navigate to `chrome://extensions/`.
-3. Enable Developer mode by toggling the switch in the top right corner.
-4. Click on "Load unpacked" and select the cloned repository folder.
-5. Ensure the extension is enabled.
+You can install the extension directly from the [Chrome Web Store](<https://chromewebstore.google.com/detail/leetcode-maxxing/gifgdkpifloodmoohogdbdhoapaehgdk>).
 
 ## Usage
 
-1. Open a new tab to start using the extension.
-2. The extension will automatically redirect you to an unsolved LeetCode problem.
-3. After solving a problem, the extension will update your progress and remove the redirection rule after you solve a predefined number of problems.
+Once installed, the extension will activate each day to guide you through your LeetCode practice sessions. You can adjust your daily goals from the settings page within the extension.
 
-## Development
+## Contributing
 
-This extension is built using the Plasmo framework.
+Contributions are welcome! If you have any ideas, bug fixes, or features to add, feel free to contribute. Here's how you can get started:
 
-To run the extension in development mode:
+### How to contribute:
 
-1. Clone this repository.
-2. Install dependencies using `pnpm install`.
-3. Start the development server with `yarn dev`.
+1. Fork the repository.
+2. Create a new branch for your feature/bug fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add a detailed commit message explaining your changes"
+   ```
+4. Push the branch to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request (PR) and follow this format:
+   - **Title:** Short and descriptive title
+   - **Description:** Brief explanation of what your changes do
+   - **Screenshots (if applicable):** Add before/after screenshots for UI changes
+   - **Testing:** Mention how you tested your changes
 
-## Credits
-
-This extension is developed by [Raghav2122](https://github.com/Raghav2122).
+6. After review, your changes will be merged.
 
 ---
 
+Let me know if you'd like to make any further changes!
